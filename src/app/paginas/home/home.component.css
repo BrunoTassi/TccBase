@@ -1,0 +1,12 @@
+.imagemLargaCooperativa {
+  background: url('../../../assets/img/cooperativaimagemlarga.png') no-repeat center;
+  position: relative;
+  background-size: 900px;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+
+}
+
+.text-violeta {
+  color: #444c8e;
+}
