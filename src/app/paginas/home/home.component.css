@@ -6,7 +6,9 @@
   padding-bottom: 8rem;
 
 }
-
+.banner {
+  background-color: #593e67;
+}
 .text-violeta {
   color: #444c8e;
 }
