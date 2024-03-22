@@ -10,10 +10,10 @@
     <div class=" collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav mx-auto ">
         <li class="nav-item">
-          <a class="nav-link mx-2 active text-black" aria-current="page" href="#">Home</a>
+          <a class="nav-link mx-2 active text-black  pointer-custom" aria-current="page" (click)="DirecionaParaHome()" >Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link mx-2 text-black" href="#"> Artigos </a>
+          <a class="nav-link mx-2 text-black pointer-custom " (click)="DirecionaParaArtigos()" > Artigos </a>
         </li>
         <li class="nav-item d-none d-lg-block">
           <a class="nav-link mx-2" href="#">
@@ -21,13 +21,12 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link mx-2 text-black" href="#">Sobre</a>
+          <a class="nav-link mx-2 text-black pointer-custom" (click)="DirecionaParaSobre()" >Sobre</a>
         </li>
         <li class="nav-item ">
-          <button class="btn btn-dark" >
+          <button class="btn btn-dark" (click)="DirecionaParaAtividade()" >
             Teste seu conhecimento
           </button>
-          
         </li>
       </ul>
     </div>

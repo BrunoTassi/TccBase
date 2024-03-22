@@ -1,0 +1,18 @@
+.bg-roxo {
+  background-color: #593e66 !important;
+}
+.texto-roxo {
+  color: #593e66;
+}
+
+.texto-grande {
+  font-size: 4em; /* Tamanho da fonte */
+  font-weight: bold; /* Peso da fonte */
+  line-height: 0.8; /* Altura da linha */
+}
+
+.underline {
+  text-decoration: underline; /* Sublinha o texto */
+  font-weight: bold; /* Adiciona efeito de negrito */
+  color: red; /* Define a cor do texto como vermelha */
+}

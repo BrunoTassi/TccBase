@@ -6,6 +6,9 @@
   }
 }
 
+.pointer-custom {
+  cursor: pointer;
+}
 
 /*.btn {
   padding: .55rem 1.5rem .45rem;
