@@ -7,6 +7,7 @@ import { HomeComponent } from './paginas/home/home.component';
 import { SobreComponent } from './paginas/sobre/sobre.component';
 import { AtividadeComponent } from './paginas/atividade/atividade.component';
 import { ArtigosComponent } from './paginas/artigos/artigos.component';
+import { ScrollToModule } from '@andrei4ik/ngx-scroll-to';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ArtigosComponent } from './paginas/artigos/artigos.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ScrollToModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
