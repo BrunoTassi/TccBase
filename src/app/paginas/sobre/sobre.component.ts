@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sobre',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class SobreComponent {
 
+  constructor(private router: Router) { }
+
+  //DirecionaLinkedinBruno() {
+  //  this.router.navigate(['https://www.linkedin.com/in/bruno-tassi-4a3b7115b/']);
+
+  //}
 }
