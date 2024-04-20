@@ -1,10 +1,7 @@
-import { Component } from '@angular/core';
+import Usuario from '../../../../classes/usuario';
 
-@Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
-})
-export class HomeComponent {
-
+ {
+  console.log('Nenhum dado do usuário encontrado.');
 }
+
+
