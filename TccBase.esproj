@@ -10,6 +10,7 @@
   <ItemGroup>
     <Folder Include="img\" />
     <Folder Include="classes\" />
+    <Folder Include="service\" />
     <Folder Include="src\assets\img\" />
   </ItemGroup>
 </Project>

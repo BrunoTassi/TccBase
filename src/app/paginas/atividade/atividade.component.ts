@@ -1,7 +1,8 @@
 import { Component, ElementRef, HostListener } from '@angular/core';
 import { Modal } from 'bootstrap';
 import Usuario from '../../../../classes/usuario';
-
+import { Route, Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 const openModalButton = document.getElementById('openModalButton');
 
 
@@ -13,7 +14,18 @@ const openModalButton = document.getElementById('openModalButton');
 })
 export class AtividadeComponent {
 
-  constructor(private el: ElementRef) {
+  nome: string = '';
+  cpf: string = '';
+  email: string = '';
+    usuarioService: any;
+ 
+  onSubmit() {
+    console.log("Nome:", this.nome);
+    console.log("CPF:", this.cpf);
+    console.log("Email:", this.email);
+  }
+
+  constructor(private el: ElementRef, private router: Router) {
     if (openModalButton) { // Verificar se o elemento foi encontrado
       openModalButton.addEventListener('click', function () {
         // Selecionar o elemento do modal pelo ID
@@ -29,36 +41,28 @@ export class AtividadeComponent {
   }
 
   salvarDadosUsuario() {
-  const nome = (document.getElementById('nome') as HTMLInputElement).value;
-  const cpf = (document.getElementById('cpf') as HTMLInputElement).value;
-  const email = (document.getElementById('email') as HTMLInputElement).value;
 
-  // Cria uma instância da classe Usuario com os dados do formulário
-  const usuario = new Usuario(nome, cpf, email);
+    const usuario = new Usuario(this.nome, this.cpf, this.email);
+    // Chama o serviço para salvar os dados do usuário
+    this.usuarioService.addUsuario(usuario).subscribe(() => {
+      // Redireciona para a página Home após salvar
+      this.router.navigate(['/home']);
+    }, (error: HttpErrorResponse) => {
+      console.error('Erro ao salvar os dados do usuário:', error);
+    });
 
-  // Armazena os dados na instância de Usuario
-  Usuario.dadosUsuario = usuario;
+    //const nome = (document.getElementById('nome') as HTMLInputElement).value;
+    //const cpf = (document.getElementById('cpf') as HTMLInputElement).value;
+    //const email = (document.getElementById('email') as HTMLInputElement).value;
 
-  // Redireciona para a página Home
-  window.location.href = 'Home.html';
-}
+    //// Cria uma instância da classe Usuario com os dados do formulário
+    //const usuario = new Usuario(nome, cpf, email);
 
-  @HostListener('keydown', ['$event'])
-  onKeyDown(event: KeyboardEvent) {
-    const key = event.key;
-    if (isNaN(Number(key)) && key !== 'Backspace' && key !== 'Delete') {
-      event.preventDefault();
-    }
-  }
+    //// Armazena os dados na instância de Usuario
+    //Usuario.dadosUsuario = usuario;
 
-  @HostListener('input', ['$event'])
-  onInput(event: InputEvent) {
-    const input = event.target as HTMLInputElement;
-    const valor = input.value.replace(/\D/g, ''); // Remove todos os caracteres que não são dígitos
-
-    if (valor.length > 11) {
-      input.value = valor.slice(0, 11); // Limita a 11 dígitos
-    }
+    //// Redireciona para a página Home
+    //window.location.href = 'Home.html';
   }
 
 
