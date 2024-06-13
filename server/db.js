@@ -1,28 +1,21 @@
 // db.js
-const sql = require('mssql');
+const mysql = require('mysql');
 
-const config = {
+const dbConfig = {
+  host: 'localhost',
   user: 'login_de_adm',
-  password: 'abc123',
-  server: 'localhost', // ou o nome do servidor SQL
-  database: 'dbTcc',
-  options: {
-    encrypt: false, // Use true para Azure SQL
-    trustServerCertificate: true // Use para desenvolvimento
+  password: 'abc123', // Substitua pela senha definida
+  database: 'dbTcc'
+};
+
+const connection = mysql.createConnection(dbConfig);
+
+connection.connect((error) => {
+  if (error) {
+    console.error('Erro ao conectar ao banco de dados MySQL:', error);
+    throw error;
   }
-};
+  console.log('Conexão bem-sucedida ao banco de dados MySQL');
+});
 
-const poolPromise = new sql.ConnectionPool(config)
-  .connect()
-  .then(pool => {
-    console.log('Conectado ao SQL Server');
-    return pool;
-  })
-  .catch(err => {
-    console.error('Erro de conexão ao SQL Server', err);
-    process.exit(1);
-  });
-
-module.exports = {
-  sql, poolPromise
-};
+module.exports = connection;

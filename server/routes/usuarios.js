@@ -1,26 +1,20 @@
 // routes/usuarios.js
 const express = require('express');
 const router = express.Router();
-const sql = require('mssql');
-const db = require('../db'); // Importa a conexão com o banco de dados
+const connection = require('../../server/db');
 
-router.post('/', async (req, res) => {
+router.post('/', (req, res) => {
   const { nome, cpf, email } = req.body;
-  const query = `INSERT INTO usuarios (nome, cpf, email) VALUES (@nome, @cpf, @email)`;
+  const query = 'INSERT INTO usuarios (nome, cpf, email) VALUES (?, ?, ?)';
 
-  try {
-    const pool = await db.connect(); // Conecta ao banco de dados
-    const result = await pool.request()
-      .input('nome', sql.VarChar, nome)
-      .input('cpf', sql.VarChar, cpf)
-      .input('email', sql.VarChar, email)
-      .query(query);
-
-    res.status(201).json({ id: result.recordset[0].id, nome, cpf, email });
-  } catch (error) {
-    console.error('Erro ao criar usuário:', error);
-    res.status(500).json({ message: 'Erro interno do servidor' });
-  }
+  connection.query(query, [nome, cpf, email], (err, result) => {
+    if (err) {
+      console.error('Erro ao criar usuário:', err);
+      res.status(500).json({ message: 'Erro interno do servidor' });
+    } else {
+      res.status(201).json({ id: result.insertId, nome, cpf, email });
+    }
+  });
 });
 
 module.exports = router;
