@@ -51,18 +51,6 @@ export class AtividadeComponent {
       console.error('Erro ao salvar os dados do usuário:', error);
     });
 
-    //const nome = (document.getElementById('nome') as HTMLInputElement).value;
-    //const cpf = (document.getElementById('cpf') as HTMLInputElement).value;
-    //const email = (document.getElementById('email') as HTMLInputElement).value;
-
-    //// Cria uma instância da classe Usuario com os dados do formulário
-    //const usuario = new Usuario(nome, cpf, email);
-
-    //// Armazena os dados na instância de Usuario
-    //Usuario.dadosUsuario = usuario;
-
-    //// Redireciona para a página Home
-    //window.location.href = 'Home.html';
   }
 
 
