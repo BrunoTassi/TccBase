@@ -9,6 +9,15 @@ import { AtividadeComponent } from './paginas/atividade/atividade.component';
 import { ArtigosComponent } from './paginas/artigos/artigos.component';
 import { ScrollToModule } from '@andrei4ik/ngx-scroll-to';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+  { path: 'atividade', component: AtividadeComponent },
+  { path: 'home', component: HomeComponent } // Defina seu componente Home aqui
+];
+
+
 
 @NgModule({
   declarations: [
@@ -23,7 +32,9 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     FormsModule ,
     AppRoutingModule,
-    ScrollToModule.forRoot()
+    ScrollToModule.forRoot(),
+    HttpClientModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]

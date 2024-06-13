@@ -2,7 +2,7 @@ import { Component, ElementRef, HostListener } from '@angular/core';
 import { Modal } from 'bootstrap';
 import Usuario from '../../../../classes/usuario';
 import { Route, Router } from '@angular/router';
-import { HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 const openModalButton = document.getElementById('openModalButton');
 
 
@@ -25,7 +25,7 @@ export class AtividadeComponent {
     console.log("Email:", this.email);
   }
 
-  constructor(private el: ElementRef, private router: Router) {
+  constructor(private el: ElementRef, private router: Router, private http: HttpClient) {
     if (openModalButton) { // Verificar se o elemento foi encontrado
       openModalButton.addEventListener('click', function () {
         // Selecionar o elemento do modal pelo ID
@@ -42,11 +42,11 @@ export class AtividadeComponent {
 
   salvarDadosUsuario() {
 
-    const usuario = new Usuario(this.nome, this.cpf, this.email);
-    // Chama o serviço para salvar os dados do usuário
-    this.usuarioService.addUsuario(usuario).subscribe(() => {
-      // Redireciona para a página Home após salvar
+    const usuario = { nome: this.nome, cpf: this.cpf, email: this.email };    // Chama o serviço para salvar os dados do usuário
+
+    this.http.post('http://localhost:3000/api/usuarios', usuario).subscribe(() => {
       this.router.navigate(['/home']);
+
     }, (error: HttpErrorResponse) => {
       console.error('Erro ao salvar os dados do usuário:', error);
     });
