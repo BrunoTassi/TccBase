@@ -1,7 +1,6 @@
-// routes/usuarios.js
 const express = require('express');
 const router = express.Router();
-const connection = require('../../server/db');
+const connection = require('../db.js'); // Corrigido o caminho
 
 router.post('/', (req, res) => {
   const { nome, cpf, email } = req.body;

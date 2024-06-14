@@ -21,6 +21,7 @@
     "@angular/router": "^17.2.0",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
+    "cors": "^2.8.5",
     "express": "^4.19.2",
     "jest-editor-support": "*",
     "mssql": "^10.0.2",

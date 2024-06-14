@@ -1,10 +1,9 @@
-// db.js
 const mysql = require('mysql');
 
 const dbConfig = {
   host: 'localhost',
   user: 'login_de_adm',
-  password: 'abc123', // Substitua pela senha definida
+  password: 'abc123',
   database: 'dbTcc'
 };
 
