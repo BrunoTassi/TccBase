@@ -1,4 +1,24 @@
-# TccBase
+<h1> # TccBase </h1> 
+
+<h3>****** PROJETO UTILIADO PARA MATERIA DE DESENVOLVIMENTO DE PRODUTO FACULDADE IMPACTA ******</h3>
+<h4> tecnologias que foram utilizadas : </h4>
+<h5>
+
+- Visual studio 2019 </br>
+- Node v.20.11.1 </br>
+- Angular 17.2.1 </br>
+- Typescript 5.3 </br>
+- MySql 8.0 </br>
+- Javascript </br>
+- bootstrap 5.3 </br>
+
+ </br>
+  </br>
+
+--- projeto com funcionabilidade concluida, porem, metodos de verificaçao e validação ainda em processo de implementação  ---
+ </br>
+</h5>
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.1.
 
