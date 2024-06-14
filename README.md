@@ -5,6 +5,7 @@
 <h5>
 - Visual studio 2019 </br>
 - Node </br>
+- Angular
 - Typescript </br>
 - Javascript </br>
 - MySql </br>
