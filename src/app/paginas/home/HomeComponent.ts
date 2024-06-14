@@ -1,4 +1,4 @@
-﻿import { Component } from '@angular/core';
+import { Component } from '@angular/core';
 
 
 @Component({
@@ -9,7 +9,6 @@
 export class HomeComponent {
 
     if(Usuario: { dadosUsuario: { nome: any; cpf: any; email: any; }; }, dadosUsuario: any) {
-        // Use os dados do usuário conforme necessário
         console.log(Usuario.dadosUsuario.nome);
         console.log(Usuario.dadosUsuario.cpf);
         console.log(Usuario.dadosUsuario.email);
